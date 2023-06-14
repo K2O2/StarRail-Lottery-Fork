@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarRail Pick</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bkImg"></div>
+    <div class="bkCircle"></div>
+    <header class="header">
+        <div class="title clearfix">
+            <div class="logo leftfix"></div>
+            <div class="titleMain leftfix">跃迁</div>
+            <div class="titleChild leftfix">蝶立锋锷</div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="content">
+            <div class="contentP0 page">
+
+            </div>
+            <div class="contentP1 page">
+                <div class="page1BkClip">
+                    <div class="page1Bk moveBk"></div>
+                </div>
+                <div class="pageSide"></div>
+                <div class="page1BkCover"></div>
+                <div class="page1BkUp moveBk"></div>
+                <div class="page1BkUpCover"></div>
+                <!-- 搜索按钮在此 -->
+                <div class="page1">
+                    <div class="pageLine"></div>
+                    <div class="pagetitle">蝶立锋锷</div>
+                    <div class="pageclock"></div>
+                    <div class="pagetime">#Time Controlled By JS</div>
+                    <div class="page1tips">每<span style="color: #e97400;">10</span>次跃迁必出<span style="color: #e97400;">4</span>或以上对象<br>指定角色出现概率提升</div>
+                    <ul class="chaLi clearfix">
+                        <li class="chaWin leftfix">
+                            <div class="chaShow1"></div>
+                            <div class="glass"></div>
+                        </li>
+                        <li class="chaWin leftfix">
+                            <div class="chaShow2"></div>
+                            <div class="glass"></div>
+                        </li>
+                        <li class="chaWin leftfix">
+                            <div class="chaShow3"></div>
+                            <div class="glass"></div>
+                        </li>
+                    </ul>
+                    <div class="ChaInfoBtn1"></div>
+                    <div class="page1ChaInfo1">希儿</div>
+                    <div class="page1ChaInfo2"></div>
+                    <div class="page1ChaInfo3"></div>
+                </div>
+                <div class="pagetag">角色活动跃迁</div>
+                <div class="pagetagm"></div>
+            </div>
+            <div class="contentP2">
+
+            </div>
+        </div>
+        <div class="piclist">
+            <ul class="piclistMain">
+                <li class="ticket ticket1">
+                    <div class="ticketN"></div>
+                    <!-- 下面这两个会在hover时响应 -->
+                    <div class="ticketNC">
+                        <div class="ticketNE"></div>
+                    </div>
+                    <!-- 接下来是active之后的内容 -->
+                    <!-- 原票样上方的玻璃材质光影 -->
+                    <div class="glass">
+                        <div class="glassself"></div>
+                    </div>
+                    <!-- 票样主题下方的玻璃样边框 -->
+                    <div class="glassE"></div>
+                    <!-- 票样的底部白边 -->
+                    <div class="ticketABk"></div>
+                    <!-- 票面 -->
+                    <div class="ticketA"></div>
+                </li>
+                <li class="ticket ticket2">
+                    <div class="ticketN"></div>
+                    <!-- 下面这两个会在hover时响应 -->
+                    <div class="ticketNC">
+                        <div class="ticketNE"></div>
+                    </div>
+                    <!-- 接下来是active之后的内容 -->
+                    <!-- 原票样上方的玻璃材质光影 -->
+                    <div class="glass">
+                        <div class="glassself"></div>
+                    </div>
+                    <!-- 票样主题下方的玻璃样边框 -->
+                    <div class="glassE"></div>
+                    <!-- 票样的底部白边 -->
+                    <div class="ticketABk"></div>
+                    <!-- 票面 -->
+                    <div class="ticketA"></div>
+                </li>
+                <li class="ticket ticket3">
+                    <div class="ticketN"></div>
+                    <!-- 下面这两个会在hover时响应 -->
+                    <div class="ticketNC">
+                        <div class="ticketNE"></div>
+                    </div>
+                    <!-- 接下来是active之后的内容 -->
+                    <!-- 原票样上方的玻璃材质光影 -->
+                    <div class="glass">
+                        <div class="glassself"></div>
+                    </div>
+                    <!-- 票样主题下方的玻璃样边框 -->
+                    <div class="glassE"></div>
+                    <!-- 票样的底部白边 -->
+                    <div class="ticketABk"></div>
+                    <!-- 票面 -->
+                    <div class="ticketA"></div>
+                </li>
+                <li class="ticket ticket4">
+                    <div class="ticketN"></div>
+                    <!-- 下面这两个会在hover时响应 -->
+                    <div class="ticketNC">
+                        <div class="ticketNE"></div>
+                    </div>
+                    <!-- 接下来是active之后的内容 -->
+                    <!-- 原票样上方的玻璃材质光影 -->
+                    <div class="glass">
+                        <div class="glassself"></div>
+                    </div>
+                    <!-- 票样主题下方的玻璃样边框 -->
+                    <div class="glassE"></div>
+                    <!-- 票样的底部白边 -->
+                    <div class="ticketABk"></div>
+                    <!-- 票面 -->
+                    <div class="ticketA"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // page初始化
+        let page = 0
+        // 背景图片选择器
+        const backImg = document.querySelector('.bkImg')
+        const backColor = document.querySelector('body')
+        // 背景图片的改变
+        function backImgC(num){
+            switch(num){
+                case 0:
+                    backImg.style.backgroundImage = "url(./img/character/begin/bk.jpg)"
+                    backColor.style.backgroundColor = "black"
+                break;
+                case 1:
+                    backImg.style.backgroundImage = "url(./img/character/xier/bk.jpg)"
+                    backColor.style.backgroundColor = "darkslateblue"
+                break;
+                case 2:
+                    backImg.style.backgroundImage = "url(./img/character/echo/bk.jpg)"
+                    backColor.style.backgroundColor = "darkblue"
+                break;
+                case 3:
+                    backImg.style.backgroundImage = "url(./img/character/normal/bk.jpg)"
+                    backColor.style.backgroundColor = "darkgray"
+                break;              
+            }
+        }
+        // 选择器生成数组
+        const ticket = document.querySelectorAll('.ticketNE')
+        console.log(ticket)
+        // 票面的选择器
+        const ticketN = document.querySelectorAll('.ticketN')
+        const ticketNC = document.querySelectorAll('.ticketNC')
+        console.log(ticketN)
+        // 激活票面的选择器
+        const ticketABk = document.querySelectorAll('.ticketABk')
+        const ticketA = document.querySelectorAll('.ticketA')
+        const glassE = document.querySelectorAll('.glassE')
+        // 玻璃动画选择器
+        const glassL = document.querySelectorAll('.ticket>.glass')
+        const glassLS = document.querySelectorAll('.ticket>.glass>.glassself')
+        console.log(glassE)
+        //为每个元素添加侦听器
+        for (let key =0;key<ticket.length;key++){
+            console.log(key)
+            ticket.item(key).addEventListener('click',function(){
+                console.log(key)
+                const check = page;
+                // console.log(page)
+                // 改变背景图片
+                backImgC(key)
+                // 锁定所有按钮
+                for(let i = 0;i<4;i++){
+                        ticket.item(i).style.pointerEvents = "none"
+                    }
+                // 清除其他的样式
+                ticketN.item(page).style.animation = "ticketNNCB 0.3s ease forwards 1";
+                ticketNC.item(page).style.animation = "ticketNNCB 0.3s ease forwards 1";
+                // 旧的消失
+                ticketABk.item(page).style.animation = "ticketEAB 0.5s ease forwards 1";
+                ticketA.item(page).style.animation = "ticketEAB 0.5s ease forwards 1";
+                glassE.item(page).style.animation = "ticketEAB 0.5s ease forwards 1";
+                // ticketN.item(page).style.animationPlayState = "running";                
+                // 显示新的演示动画
+                // 使即将出现的元素display
+                ticketABk.item(key).style.display = "block";
+                ticketA.item(key).style.display = "block";
+                glassE.item(key).style.display = "block";
+                glassL.item(key).style.display = "block";
+                // 开始播放动画
+                // 使票样消失
+                ticketN.item(key).style.animation = "ticketNNCA 1s ease forwards 1";
+                ticketNC.item(key).style.animation = "ticketNNCA 1s ease forwards 1";
+                // 是激活状态出现
+                // 玻璃动画
+                glassLS.item(key).style.animation = "ticketG 0.7s ease forwards 1";
+                // 其他激活飘扬动画
+                ticketABk.item(key).style.animation = "ticketEAA 1s ease forwards 1";
+                ticketA.item(key).style.animation = "ticketEAA 1s ease forwards 1";
+                glassE.item(key).style.animation = "ticketEAA 1s ease forwards 1";
+                // 替换现有page到点击的这个
+                // 使应该消失的元素displaynone
+                setTimeout(function(){
+                    ticketABk.item(page).style.display = "none";
+                    ticketA.item(page).style.display = "none";
+                    glassE.item(page).style.display = "none";
+                    glassL.item(page).style.display = "none";
+                    // 解锁
+                    for(let i = 0;i<4;i++){
+                        ticket.item(i).style.pointerEvents = "auto"
+                    }
+                    page = key
+                },500)
+            })
+        }
+
+    </script>
+</body>
+</html>
