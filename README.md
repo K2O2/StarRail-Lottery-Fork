@@ -1,2 +1,2 @@
-# StarRail-Pic-Fork
+# StarRail-Lottery-Fork
 By Html
