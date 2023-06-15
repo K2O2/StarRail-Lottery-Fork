@@ -14,7 +14,7 @@
         <div class="title clearfix">
             <div class="logo leftfix"></div>
             <div class="titleMain leftfix">跃迁</div>
-            <div class="titleChild leftfix">蝶立锋锷</div>
+            <div class="titleChild leftfix">始发跃迁</div>
         </div>
     </header>
     <div class="main">
@@ -31,10 +31,45 @@
                 </div>
                 <div class="chaTags">
                     <div class="tag">
-                        <div class="tagWord"></div>
+                        <div class="tagWord">彦卿</div>
                         <div class="tagLogo"></div>
                         <div class="tagStars"></div>
                     </div>
+                    <div class="tag">
+                        <div class="tagWord">杰帕德</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                    <div class="tag">
+                        <div class="tagWord">&nbsp;&nbsp;克拉拉</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                    <div class="tag">
+                        <div class="tagWord">布洛妮娅</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                    <div class="tag">
+                        <div class="tagWord">姬子</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                    <div class="tag">
+                        <div class="tagWord">白露</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                    <div class="tag">
+                        <div class="tagWord">&nbsp;瓦尔特</div>
+                        <div class="tagLogo"></div>
+                        <div class="tagStars"></div>
+                    </div>
+                </div>
+                <div class="chaBoard">
+                    <div class="pagetag">新手跃迁</div>
+                    <div class="pagetitle">始发跃迁</div>
+                    <div class="pageTextArea">十连8折，每<span style="color: #e97400;">50</span>次跃迁内必得<span style="color: #e97400;">5</span>星角色</div>
                 </div>
             </div>
             <div class="contentP1 page">
@@ -54,15 +89,15 @@
                     <div class="page1tips">每<span style="color: #e97400;">10</span>次跃迁必出<span style="color: #e97400;">4</span>或以上对象<br>指定角色出现概率提升</div>
                     <ul class="chaLi clearfix">
                         <li class="chaWin leftfix">
-                            <div class="chaShow1"></div>
+                            <div class="chaShow1 chaShow"></div>
                             <div class="glass"></div>
                         </li>
                         <li class="chaWin leftfix">
-                            <div class="chaShow2"></div>
+                            <div class="chaShow2 chaShow"></div>
                             <div class="glass"></div>
                         </li>
                         <li class="chaWin leftfix">
-                            <div class="chaShow3"></div>
+                            <div class="chaShow3 chaShow"></div>
                             <div class="glass"></div>
                         </li>
                     </ul>
@@ -74,7 +109,10 @@
                 <div class="pagetag">角色活动跃迁</div>
                 <div class="pagetagm"></div>
             </div>
-            <div class="contentP2">
+            <div class="contentP2 page">
+
+            </div>
+            <div class="contentP3 page">
 
             </div>
         </div>
@@ -158,6 +196,32 @@
     <script>
         // page初始化
         let page = 0
+        // page切换核心
+        const pagemain = document.querySelectorAll('.page');
+        function pageShow(now,target){
+            // 隐藏现有的页面
+            // 判别是向上消失还是向下
+            let direct = target < now;
+            // true从上面出现新页面
+            if(direct){
+                pagemain.item(now).style.animation = "leavingdown 0.5s ease forwards"
+            }else{
+                pagemain.item(now).style.animation = "leavingup 0.5s ease forwards"
+            }
+            //目标出现
+            switch(target){
+                case 0: 
+                    p0show()
+                break;
+                case 1: 
+                    p1show(direct)
+                break;
+            }
+            // 旧的消失
+            setTimeout(function(){
+                pagemain.item(now).style.display = "none";
+            },500)
+        }
         // 背景图片选择器
         const backImg = document.querySelector('.bkImg')
         const backColor = document.querySelector('body')
@@ -182,13 +246,91 @@
                 break;              
             }
         }
+        //抽卡页面title
+        const mainTitle = document.querySelector('.titleChild')
+        function changeTitle(num){
+            switch(num){
+                case 0: 
+                mainTitle.textContent= "始发跃迁"
+                break;
+                case 1: 
+                mainTitle.textContent= "蝶立锋锷"
+                break;
+                case 2: 
+                mainTitle.textContent= "流光定影"
+                break;
+                case 3: 
+                mainTitle.textContent= "群星跃迁"
+                break;
+            }
+        }
+        // page0出现
+        const p0main = document.querySelector('.contentP0')
+        const p0cha = document.querySelectorAll('.chaWall>.cha')
+        // console.log(p0cha)
+        const p0tag = document.querySelector('.chaTags')
+        // 控制函数
+        function p0show(){
+            // main 
+            p0main.style.display = "block"
+            p0main.style.animation = "movingup 0.5s ease forwards 1"
+            // tags 
+            p0tag.style.animation = "tagShow 1.5s ease forwards 1"
+            // characters
+            for (let i = 0; i < 7; i++) {
+                switch (i) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        p0cha.item(i).style.animation = "chaShowA 1.5s ease forwards 1";
+                    break;
+                    case 3:
+                    case 4:
+                        p0cha.item(i).style.animation = "chaShowB 1.5s ease forwards 1";
+                    break;
+                    case 6:
+                        p0cha.item(i).style.animation = "chaShowC 1.5s ease forwards 1";
+                    break;
+                    default:
+                    break;
+                }
+            }
+
+
+        }
+        
+        // page1出现
+        const p1main = document.querySelector('.contentP1')
+        const p1back = document.querySelectorAll('.moveBk')
+        const p1cha = document.querySelectorAll('.chaWin>.chaShow')
+        // console.log(p1cha)
+        const p1gla = document.querySelectorAll('.chaWin>.glass')
+        // p1展示函数
+        function p1show(dir){
+            p1main.style.display = "block";
+            if(dir){
+                p1main.style.animation = "movingdown 0.5s ease forwards 1";
+            }else{
+                p1main.style.animation = "movingup 0.5s ease forwards 1";
+            }
+            p1back.item(0).style.animation = "moveRight 1.8s ease forwards 1";
+            p1back.item(1).style.animation = "moveRight 1.8s ease forwards 1";
+
+            for(let i = 0;i<3;i++){
+                p1cha.item(i).style.transform = " translateX(-15%) "
+                p1cha.item(i).style.animation = "moveCha 1.8s ease forwards 1";
+                p1gla.item(i).style.animation = "moveChaG 2s ease forwards 1";
+            }
+        }
+
+
         // 选择器生成数组
         const ticket = document.querySelectorAll('.ticketNE')
-        console.log(ticket)
+        // console.log(ticket)
         // 票面的选择器
         const ticketN = document.querySelectorAll('.ticketN')
         const ticketNC = document.querySelectorAll('.ticketNC')
-        console.log(ticketN)
+        // console.log(ticketN)
         // 激活票面的选择器
         const ticketABk = document.querySelectorAll('.ticketABk')
         const ticketA = document.querySelectorAll('.ticketA')
@@ -196,7 +338,7 @@
         // 玻璃动画选择器
         const glassL = document.querySelectorAll('.ticket>.glass')
         const glassLS = document.querySelectorAll('.ticket>.glass>.glassself')
-        console.log(glassE)
+        // console.log(glassE)
         //为每个元素添加侦听器
         for (let key =0;key<ticket.length;key++){
             console.log(key)
@@ -209,7 +351,10 @@
                 // 锁定所有按钮
                 for(let i = 0;i<4;i++){
                         ticket.item(i).style.pointerEvents = "none"
+                        // console.log(i)
                     }
+                changeTitle(key)
+                pageShow(page,key)
                 // 清除其他的样式
                 ticketN.item(page).style.animation = "ticketNNCB 0.3s ease forwards 1";
                 ticketNC.item(page).style.animation = "ticketNNCB 0.3s ease forwards 1";

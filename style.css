@@ -98,21 +98,37 @@ body{
 /* #region start main  */
 
 .main{
-    position: relative;
+    position: fixed;
 }
 
 @keyframes movingup {
-    0%{transform: translateY(100%);}
-    20% { transform: translateY(100%); }
-    100% { transform: translateY(0%); }
+    0%{transform: translateY(100%); opacity: 0;}
+    /* 20% { transform: translateY(100%); } */
+    100% { transform: translateY(0%); opacity: 1;}
 }
+@keyframes movingdown {
+    0%{transform: translateY(-100%);opacity: 0;}
+    /* 20% { transform: translateY(-100%); } */
+    100% { transform: translateY(0%); opacity: 1;}
+}
+@keyframes leavingdown {
+    0%{transform: translateY(0%); opacity: 1;}
+    /* 20% { transform: translateY(-100%); } */
+    100% { transform: translateY(100%); opacity: 0;}
+}
+@keyframes leavingup {
+    0%{transform: translateY(0%);opacity: 1;}
+    /* 20% { transform: translateY(-100%); } */
+    100% { transform: translateY(-100%); opacity: 0;}
+}
+
 
 /* #endregion  */
 
 /* #region start piclist  */
 
 .piclistMain{
-    position: relative;
+    position: fixed;
     top: 144px;
     left: 0px;
     width: 220px;
@@ -399,7 +415,7 @@ body{
 /* #region start content  */
 
 .content{
-    position: fixed;
+    position: relative;
     left: 0;
     top: 0;
     width: 100vw;
@@ -484,21 +500,48 @@ body{
 
 /* #region start P0  */
 
+@keyframes chaShowA{
+    0%{transform: translateY(0%); opacity: 0;}
+    30%{transform: translateY(0%); opacity: 0;}
+    70% { opacity: 1; }
+    100% { transform: translateY(-10%); }
+}
+@keyframes chaShowB{
+    0%{transform: translateY(0%); opacity: 0;}
+    40%{transform: translateY(0%); opacity: 0;}
+    80% { opacity: 1; }
+    100% { transform: translateY(-10%); }
+}
+@keyframes chaShowC{
+    0%{transform: translateY(0%); opacity: 0;}
+    50%{transform: translateY(0%); opacity: 0;}
+    90% { opacity: 1; }
+    100% { transform: translateY(-10%); }
+}
+@keyframes tagShow{
+    0%{ opacity: 0;}
+    70% { opacity: 0; }
+    100% { opacity: 1; }
+}
 .contentP0{
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: block;
+    animation: movingup 0.5s ease forwards 1 ;
 }
 
 .chaWall{
     position: absolute;
+    top: 12%;
     width: 100%;
     height: 100%;
 }
+
+/* animations  */
 
 /* 7characters */
 .chaWall>.cha{
@@ -510,44 +553,51 @@ body{
 .chaWall>.cha:nth-child(1){
     background-image: url(./img/character/begin/yq.png);
     background-size: 98%;
-    top: -32%;
+    top: -30%;
     left: -15%;
+    animation: chaShowA 1.5s ease forwards 1;
 }
 .chaWall>.cha:nth-child(2){
     background-image: url(./img/character/begin/jpd.png);
     background-size: 115%;
-    top: -50%;
+    top: -48%;
     left: -4%;
+    animation: chaShowA 1.5s ease forwards 1;
 }
 .chaWall>.cha:nth-child(3){
     background-image: url(./img/character/begin/cll.png);
     background-size: 110%;
-    top: -42%;
+    top: -39%;
     left: 40%;
+    animation: chaShowA 1.5s ease forwards 1;
 }
 .chaWall>.cha:nth-child(4){
     background-image: url(./img/character/begin/blny.png);
-    background-size: 90%;
-    top: -16%;
+    background-size: 88%;
+    top: -12%;
     left: -1%;
+    animation: chaShowB 1.5s ease forwards 1;
 }
 .chaWall>.cha:nth-child(5){
     background-image: url(./img/character/begin/jz.png);
     background-size: 75%;
-    top: 8%;
-    left: 36%;
+    top: 13%;
+    left: 37%;
+    animation: chaShowB 1.5s ease forwards 1;
 }
 .chaWall>.cha:nth-child(6){
     background-image: url(./img/character/begin/bl.png);
     background-size: 80%;
     top: 0%;
     left: 48%;
+    animation: chaShowB 1.5s ease forwards 1
 }
 .chaWall>.cha:nth-child(7){
     background-image: url(./img/character/begin/wet.png);
-    background-size: 90%;
+    background-size: 85%;
     top: 13%;
-    left: 16%;
+    left: 17%;
+    animation: chaShowC 1.5s ease forwards 1;
 }
 
 /* Here is for tags */
@@ -556,19 +606,143 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
+    animation: tagShow 1.5s ease forwards 1;
 }
 
+.chaTags>.tag{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+}
+
+.tagWord{
+    width: 65px;
+    height: 33px;
+    padding-left: 50px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 23px;
+    text-shadow: 0 0 10px black;
+}
+.tagLogo{
+    width: 40px;
+    height: 40px;
+    transform: translate(14px,-34px);
+    background-repeat: no-repeat;
+}
+.tagStars{
+    width: 130px;
+    height: 25px;
+    transform: translateY(-34px);
+    background-image: url(./img/ui/fiveStars.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* sorts of tags */
+
+.chaTags>.tag:nth-child(1){
+    top: 33%;
+    left: 16%;
+}
+.chaTags>.tag:nth-child(1) .tagLogo{
+    background-image: url(./img/ui/ice.png);
+}
+.chaTags>.tag:nth-child(2){
+    top: 24%;
+    left: 43%;
+}
+.chaTags>.tag:nth-child(2) .tagLogo{
+    background-image: url(./img/ui/ice.png);
+}
+.chaTags>.tag:nth-child(2) .tagWord{
+    width: 85px;
+}
+.chaTags>.tag:nth-child(3){
+    top: 36%;
+    left: 74%;
+}
+.chaTags>.tag:nth-child(3) .tagLogo{
+    background-image: url(./img/ui/phyical.png);
+}
+.chaTags>.tag:nth-child(3) .tagWord{
+    width: 95px;
+}
+.chaTags>.tag:nth-child(4){
+    top: 44%;
+    left: 28%;
+}
+.chaTags>.tag:nth-child(4) .tagLogo{
+    background-image: url(./img/ui/wind.png);
+}
+.chaTags>.tag:nth-child(4) .tagWord{
+    width: 102px;
+}
+.chaTags>.tag:nth-child(5){
+    top: 48%;
+    left: 60%;
+}
+.chaTags>.tag:nth-child(5) .tagLogo{
+    background-image: url(./img/ui/fire.png);
+}
+.chaTags>.tag:nth-child(6){
+    top: 60%;
+    left: 80%;
+}
+.chaTags>.tag:nth-child(6) .tagLogo{
+    background-image: url(./img/ui/electronic.png);
+}
+.chaTags>.tag:nth-child(7){
+    top: 52%;
+    left: 44%;
+}
+.chaTags>.tag:nth-child(7) .tagLogo{
+    background-image: url(./img/ui/unreal.png);
+}
+.chaTags>.tag:nth-child(7) .tagWord{
+    width: 88px;
+}
+
+/* Board info  */
+.chaBoard>.pagetag{
+    top: 62%;
+    left: 18%;
+    width: 110px;
+}
+.chaBoard>.pagetitle{
+    top: 66%;
+    left: 18%;
+    color: white;
+    text-shadow: 0 0 8px black;
+}
+.chaBoard>.pageTextArea{
+    position: absolute;
+    top: 73%;
+    left: 18%;
+    width: 600px;
+    height: 110px;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+}
+
+/* #endregion P0  */
 
 /* #region start P1  */
 
 .contentP1{
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: none;
+    /* animation: leavingdown 0.5s ease forwards; */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%);
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%);
+
 }
 
 .page1{
@@ -598,7 +772,8 @@ body{
 }
 
 .moveBk{
-    animation: moveRight 1.8s ease forwards;
+    font-size: 20px;
+    /* animation: moveRight 1.8s ease forwards 1; */
 }
 
 .page1Bk{
@@ -672,11 +847,11 @@ body{
     background-repeat: no-repeat;
     background-size: 120%;
     background-position:-495px -290px;
-    animation: moveCha 1.8s ease forwards;
+    /* animation: moveCha 1.8s ease forwards 1; */
 }
 
 @keyframes moveCha {
-    30% { transform: translateX(-15%); }
+    0% { transform: translateX(-15%); }
     100% { transform: translateX(0%); }
 }
 
@@ -687,7 +862,7 @@ body{
     background-repeat: no-repeat;
     background-size: 120%;
     background-position:-495px -400px;
-    animation: moveCha 1.8s ease forwards;
+    /* animation: moveCha 1.8s ease forwards 1; */
 }
 
 .chaShow3{
@@ -697,7 +872,7 @@ body{
     background-repeat: no-repeat;
     background-size: 125%;
     background-position:-435px -340px;
-    animation: moveCha 1.8s ease forwards;
+    /* animation: moveCha 1.8s ease forwards 1; */
 }
 
 .chaWin>.glass{
@@ -709,12 +884,11 @@ body{
     background-size: 80%;
     top:-1250px;
     opacity: 0.5;
-    animation: moveChaG 2s ease forwards;
+    /* animation: moveChaG 2s ease forwards 1; */
 }
 
 @keyframes moveChaG {
     0% { transform: translateX(-80%); }   
-    30% { transform: translateX(-80%); }
     100% { transform: translateX(10%); }
 }
 
