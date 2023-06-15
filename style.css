@@ -405,8 +405,8 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%);
-    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%);
+    /* mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%);
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,0) 92%); */
 
 }
 
@@ -484,8 +484,79 @@ body{
 
 /* #region start P0  */
 
+.contentP0{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+}
 
+.chaWall{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
+/* 7characters */
+.chaWall>.cha{
+    position: absolute;
+    height: 133%;
+    width: 83%;
+    background-repeat: no-repeat;
+}
+.chaWall>.cha:nth-child(1){
+    background-image: url(./img/character/begin/yq.png);
+    background-size: 98%;
+    top: -32%;
+    left: -15%;
+}
+.chaWall>.cha:nth-child(2){
+    background-image: url(./img/character/begin/jpd.png);
+    background-size: 115%;
+    top: -50%;
+    left: -4%;
+}
+.chaWall>.cha:nth-child(3){
+    background-image: url(./img/character/begin/cll.png);
+    background-size: 110%;
+    top: -42%;
+    left: 40%;
+}
+.chaWall>.cha:nth-child(4){
+    background-image: url(./img/character/begin/blny.png);
+    background-size: 90%;
+    top: -16%;
+    left: -1%;
+}
+.chaWall>.cha:nth-child(5){
+    background-image: url(./img/character/begin/jz.png);
+    background-size: 75%;
+    top: 8%;
+    left: 36%;
+}
+.chaWall>.cha:nth-child(6){
+    background-image: url(./img/character/begin/bl.png);
+    background-size: 80%;
+    top: 0%;
+    left: 48%;
+}
+.chaWall>.cha:nth-child(7){
+    background-image: url(./img/character/begin/wet.png);
+    background-size: 90%;
+    top: 13%;
+    left: 16%;
+}
+
+/* Here is for tags */
+
+.chaTags{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 
 /* #region start P1  */
